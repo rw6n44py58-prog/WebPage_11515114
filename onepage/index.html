@@ -1,450 +1,321 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="藍天咖啡，為手沖咖啡愛好者挑選當季精品咖啡豆，讓每一杯都清澈、明亮、值得細品。">
-  <title>藍天咖啡｜讓風味，慢慢抵達</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@600;700;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>尋寵餐廳｜與貓咪共進溫暖美味食光・支持愛心領養</title>
+  <meta name="description" content="尋寵餐廳專為貓咪愛好者打造的溫馨同餐空間。提供人氣私房美味料理與特製貓咪鮮食，店內常駐多隻親人店貓陪伴，並全力支持浪貓愛心領養。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --navy: #062742;
-      --blue: #0c5b95;
-      --sky: #75c6e8;
-      --mist: #eaf5f7;
-      --cream: #fbfaf6;
-      --ink: #122534;
-      --muted: #607482;
-      --line: #d7e4e8;
-      --sand: #e5b66b;
-      --shadow: 0 18px 50px rgba(6, 39, 66, .13);
+      --primary-orange: #ef6c35;
+      --primary-deep: #d8521d;
+      --primary-light: #fff4ed;
+      --primary-tint: #ffe4d4;
+      --accent-warm: #f7a24c;
+      --accent-yellow: #fcc458;
+      --bg-cream: #fdfaf6;
+      --bg-white: #ffffff;
+      --text-main: #332720;
+      --text-muted: #796a60;
+      --text-light: #a4978e;
+      --border-warm: #eedfd5;
+      --card-shadow: 0 12px 32px rgba(189, 90, 42, 0.08);
+      --card-hover: 0 16px 38px rgba(189, 90, 42, 0.15);
+      --badge-adopt: #ff5722;
+      --tag-green: #3ea06b;
+      --tag-green-bg: #eaf8f0;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 999px;
     }
-
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      color: var(--ink);
-      background: var(--cream);
-      font: 16px/1.7 "Noto Sans TC", sans-serif;
-      -webkit-font-smoothing: antialiased;
+      font-family: 'Noto Sans TC', sans-serif;
+      background: var(--bg-cream);
+      color: var(--text-main);
+      line-height: 1.7;
+      overflow-x: hidden;
     }
+    img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
-    button, input { font: inherit; }
-    button { cursor: pointer; }
-    .wrap { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
-    .eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin: 0 0 18px;
-      color: var(--blue);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .18em;
-    }
-    .eyebrow::before { width: 28px; height: 1px; background: currentColor; content: ""; }
-    .section-title {
-      margin: 0;
-      font: 800 clamp(30px, 4vw, 46px)/1.28 "Noto Serif TC", serif;
-      letter-spacing: .045em;
-    }
-    .text-blue { color: var(--blue); }
-    .button, .outline-link {
-      display: inline-flex;
-      min-height: 50px;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 23px;
-      border: 1px solid transparent;
-      border-radius: 2px;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: .04em;
-      transition: transform .25s ease, background-color .25s ease, color .25s ease, border-color .25s ease;
-    }
-    .button:hover, .outline-link:hover { transform: translateY(-2px); }
-    .button--sand { color: var(--navy); background: var(--sand); }
-    .button--sand:hover { background: #f1cb8b; }
-    .button--dark { color: var(--navy); background: #fff; }
-    .outline-link { border-color: rgba(255,255,255,.72); color: #fff; }
-    .outline-link:hover { color: var(--navy); background: #fff; }
-    :focus-visible { outline: 3px solid var(--sky); outline-offset: 4px; }
-
-    /* Header & hero */
-    .site-header { position: absolute; z-index: 20; top: 0; left: 0; width: 100%; border-bottom: 1px solid rgba(255,255,255,.28); }
-    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .brand { display: inline-flex; align-items: center; gap: 11px; color: #fff; }
-    .brand-mark { width: 29px; height: 29px; display: grid; place-items: center; border: 1px solid var(--sky); border-radius: 50%; color: var(--sky); font: 700 16px/1 "Playfair Display", serif; }
-    .brand-copy { display: grid; line-height: 1.05; }
-    .brand-copy strong { font-size: 13px; letter-spacing: .08em; }
-    .brand-copy small { margin-top: 4px; font-size: 8px; letter-spacing: .18em; opacity: .7; }
-    .nav-links { display: flex; align-items: center; gap: clamp(16px, 2.4vw, 31px); }
-    .nav-links a { position: relative; color: #fff; font-size: 13px; font-weight: 500; white-space: nowrap; }
-    .nav-links a:not(.nav-cta)::after { position: absolute; right: 0; bottom: -5px; left: auto; width: 0; height: 1px; background: var(--sky); content: ""; transition: width .25s ease; }
-    .nav-links a:not(.nav-cta):hover::after { right: auto; left: 0; width: 100%; }
-    .nav-links .nav-cta { padding: 8px 13px; border: 1px solid rgba(255,255,255,.72); }
-    .nav-links .nav-cta:hover { color: var(--navy); background: #fff; }
-    .menu-toggle { display: none; width: 42px; height: 42px; border: 1px solid rgba(255,255,255,.7); color: #fff; background: transparent; font-size: 23px; line-height: 1; }
-
-    .hero { position: relative; min-height: 704px; overflow: hidden; color: #fff; background: var(--navy); isolation: isolate; }
-    .hero::before { position: absolute; z-index: -2; top: -320px; right: -210px; width: 810px; height: 810px; border-radius: 50%; background: radial-gradient(circle, rgba(117,198,232,.38), rgba(12,91,149,.18) 38%, transparent 69%); content: ""; }
-    .hero::after { position: absolute; z-index: -1; right: 12%; bottom: -430px; width: 780px; height: 780px; border: 1px solid rgba(117,198,232,.18); border-radius: 50%; box-shadow: 0 0 0 65px rgba(117,198,232,.035), 0 0 0 154px rgba(117,198,232,.025); content: ""; }
-    .hero-grid { min-height: 704px; display: grid; grid-template-columns: 1.02fr .98fr; gap: 45px; align-items: center; padding: 122px 0 72px; }
-    .hero-copy { position: relative; z-index: 2; }
-    .hero .eyebrow { color: var(--sky); }
-    .hero h1 { max-width: 650px; margin: 0 0 23px; font: 800 clamp(42px, 5.5vw, 68px)/1.22 "Noto Serif TC", serif; letter-spacing: .05em; }
-    .hero h1 span { color: var(--sky); }
-    .hero-lede { max-width: 500px; margin: 0; color: rgba(255,255,255,.79); font-size: 16px; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 31px; }
-    .hero-note { margin: 31px 0 0; color: rgba(255,255,255,.55); font: 600 11px/1.5 "Playfair Display", serif; letter-spacing: .16em; }
-    .scroll-cue { position: absolute; bottom: 35px; left: 0; display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,.63); font-size: 10px; font-weight: 600; letter-spacing: .18em; }
-    .scroll-cue::before { width: 38px; height: 1px; background: var(--sky); content: ""; }
-
-    .hero-art { position: relative; align-self: stretch; min-height: 470px; overflow: hidden; }
-    .hero-art .sun { position: absolute; top: 52px; right: 54px; width: clamp(138px, 18vw, 200px); aspect-ratio: 1; border-radius: 50%; background: #b9e8f5; box-shadow: 0 0 0 27px rgba(117,198,232,.09), 0 0 0 59px rgba(117,198,232,.045); }
-    .mountain { position: absolute; right: -11%; bottom: 6px; width: 116%; height: 260px; transform: skewY(-9deg); transform-origin: right bottom; background: linear-gradient(146deg, transparent 0 27%, rgba(61,145,184,.36) 27.3% 48%, rgba(17,97,143,.77) 48.3%); clip-path: polygon(0 62%, 28% 20%, 44% 57%, 68% 4%, 100% 57%, 100% 100%, 0 100%); }
-    .mountain--back { right: 13%; bottom: 98px; width: 108%; height: 220px; opacity: .46; transform: skewY(-4deg); background: #2a81ae; clip-path: polygon(0 84%, 31% 30%, 45% 62%, 66% 9%, 100% 66%, 100% 100%, 0 100%); }
-    .horizon { position: absolute; right: -4%; bottom: 0; width: 116%; height: 112px; background: linear-gradient(90deg, rgba(7,45,75,.5), #0d5684); transform: skewY(-4deg); }
-    .coffee-vessel { position: absolute; z-index: 4; right: 18%; bottom: 36px; width: 192px; height: 274px; filter: drop-shadow(18px 22px 14px rgba(0,0,0,.22)); }
-    .vessel-neck { position: absolute; top: 0; left: 62px; width: 68px; height: 42px; border: 7px solid #b3e2ef; border-bottom: 0; border-radius: 50% 50% 0 0; background: rgba(6,39,66,.62); }
-    .vessel-body { position: absolute; top: 33px; left: 18px; width: 150px; height: 212px; border: 7px solid #b3e2ef; border-radius: 31% 31% 42% 42% / 12% 12% 37% 37%; background: linear-gradient(90deg, rgba(30,112,151,.9), rgba(5,35,60,.9) 45%, rgba(83,167,198,.8)); overflow: hidden; }
-    .vessel-body::before { position: absolute; top: 15px; left: 0; width: 100%; height: 5px; background: rgba(197,237,244,.8); box-shadow: 0 48px rgba(197,237,244,.25), 0 95px rgba(197,237,244,.18), 0 145px rgba(197,237,244,.13); content: ""; }
-    .vessel-body::after { position: absolute; top: 5px; left: 48%; width: 24px; height: 200px; border-radius: 50%; background: rgba(218,247,251,.17); content: ""; }
-    .vessel-handle { position: absolute; right: 0; bottom: 49px; width: 62px; height: 98px; border: 10px solid #a9dce9; border-left: 0; border-radius: 0 53px 53px 0; }
-    .art-label { position: absolute; z-index: 5; right: 0; bottom: 64px; display: grid; gap: 3px; color: rgba(255,255,255,.73); font-size: 11px; letter-spacing: .1em; text-align: right; }
-    .art-label strong { color: var(--sky); font: 700 22px/1 "Playfair Display", serif; }
-
-    /* Story */
-    .story { padding: 118px 0; background: #fff; }
-    .story-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(45px, 8vw, 105px); align-items: center; }
-    .story-visual { position: relative; min-height: 416px; }
-    .seal { position: absolute; top: 0; left: 0; width: 310px; height: 310px; display: grid; place-items: center; border: 1px solid #a8d2df; border-radius: 50%; color: var(--blue); background: radial-gradient(circle at 35% 30%, #fff 0, #eaf6f8 68%, #d9edf1 100%); }
-    .seal::before, .seal::after { position: absolute; border: 1px solid rgba(12,91,149,.25); border-radius: 50%; content: ""; }
-    .seal::before { inset: 17px; }
-    .seal::after { inset: 44px; border-style: dashed; }
-    .seal-inner { position: relative; z-index: 1; display: grid; gap: 7px; text-align: center; }
-    .seal-inner b { font: 700 42px/1 "Playfair Display", serif; }
-    .seal-inner span { font-size: 13px; font-weight: 700; letter-spacing: .1em; }
-    .seal-inner small { font: 600 9px/1.5 "Playfair Display", serif; letter-spacing: .15em; }
-    .blue-note { position: absolute; right: 0; bottom: 0; width: 235px; padding: 27px 28px; color: #fff; background: var(--navy); box-shadow: var(--shadow); }
-    .blue-note .eyebrow { margin-bottom: 9px; color: var(--sky); font-size: 9px; }
-    .blue-note p { margin: 0; font: 700 20px/1.55 "Noto Serif TC", serif; letter-spacing: .05em; }
-    .story-copy p { margin: 19px 0 0; color: var(--muted); }
-    .inline-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 24px; padding-bottom: 5px; border-bottom: 1px solid var(--blue); color: var(--blue); font-weight: 700; }
-    .inline-link:hover { color: var(--navy); }
-
-    /* Coffee collection */
-    .coffee { padding: 111px 0 120px; background: var(--mist); }
-    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin-bottom: 39px; }
-    .section-heading p { max-width: 370px; margin: 0; color: var(--muted); }
-    .coffee-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 19px; }
-    .coffee-card { position: relative; min-height: 384px; display: flex; flex-direction: column; overflow: hidden; padding: 30px; color: #fff; background: var(--navy); box-shadow: var(--shadow); }
-    .coffee-card:nth-child(2) { background: #106396; }
-    .coffee-card:nth-child(3) { background: #164c68; }
-    .coffee-card::after { position: absolute; right: -90px; bottom: -90px; width: 260px; height: 260px; border: 1px solid rgba(255,255,255,.24); border-radius: 50%; box-shadow: 0 0 0 27px rgba(255,255,255,.045), 0 0 0 65px rgba(255,255,255,.025); content: ""; }
-    .card-top, .coffee-card h3, .flavour, .card-footer { position: relative; z-index: 1; }
-    .card-top { color: var(--sky); font: 700 12px/1.3 "Playfair Display", serif; letter-spacing: .12em; }
-    .origin { margin: 25px 0 8px; color: rgba(255,255,255,.69); font-size: 10px; font-weight: 700; letter-spacing: .15em; }
-    .coffee-card h3 { margin: 0; font: 700 26px/1.38 "Noto Serif TC", serif; letter-spacing: .04em; }
-    .flavour { margin: 15px 0 0; color: rgba(255,255,255,.73); font-size: 14px; }
-    .card-footer { display: flex; align-items: end; justify-content: space-between; gap: 14px; margin-top: auto; }
-    .price { font: 700 15px/1.3 "Playfair Display", serif; letter-spacing: .04em; }
-    .save-coffee { padding: 0 0 5px; border: 0; border-bottom: 1px solid rgba(255,255,255,.72); color: #fff; background: transparent; font-size: 13px; font-weight: 700; white-space: nowrap; transition: color .2s, border-color .2s; }
-    .save-coffee:hover { border-color: var(--sand); color: var(--sand); }
-
-    /* Brew */
-    .brew { padding: 118px 0; background: #fff; }
-    .brew-grid { display: grid; grid-template-columns: .93fr 1.07fr; gap: clamp(42px, 8vw, 90px); align-items: center; }
-    .brew-art { position: relative; height: 414px; overflow: hidden; background: linear-gradient(136deg, #e3f4f7 0 48%, #f8fcfc 48% 100%); }
-    .brew-art::before { position: absolute; top: 37px; left: 35px; width: 68px; height: 41px; border-top: 1px solid #6cb4ce; border-bottom: 1px solid #6cb4ce; content: ""; }
-    .brew-art::after { position: absolute; top: 57px; left: 35px; width: 43px; border-top: 1px solid #6cb4ce; content: ""; }
-    .water-rings { position: absolute; top: 67px; left: 50%; width: 245px; height: 245px; border: 1px solid rgba(12,91,149,.27); border-radius: 50%; transform: translateX(-50%); box-shadow: 0 0 0 30px rgba(117,198,232,.12), 0 0 0 74px rgba(117,198,232,.065); }
-    .water-rings::before { position: absolute; top: 18px; left: 50%; width: 1px; height: 58px; background: #6bb8d1; content: ""; transform: translateX(-50%); }
-    .dripper { position: absolute; z-index: 2; top: 134px; left: 50%; width: 147px; height: 151px; border: 7px solid var(--blue); border-top: 0; background: linear-gradient(130deg, rgba(255,255,255,.85), rgba(117,198,232,.25)); clip-path: polygon(0 0, 100% 0, 74% 100%, 26% 100%); transform: translateX(-50%); }
-    .dripper::after { position: absolute; right: 32px; bottom: 19px; left: 32px; height: 33px; border-top: 2px solid rgba(12,91,149,.55); border-bottom: 2px solid rgba(12,91,149,.35); content: ""; }
-    .carafe { position: absolute; z-index: 1; bottom: 56px; left: 50%; width: 139px; height: 106px; border: 6px solid var(--blue); border-radius: 16px 16px 45% 45%; background: rgba(117,198,232,.23); transform: translateX(-50%); }
-    .carafe::before { position: absolute; top: -28px; left: 29px; width: 70px; height: 28px; border: 6px solid var(--blue); border-bottom: 0; border-radius: 50% 50% 0 0; content: ""; }
-    .brew-caption { position: absolute; right: 24px; bottom: 19px; color: var(--blue); text-align: right; }
-    .brew-caption span { display: block; font: 700 11px/1.5 "Playfair Display", serif; letter-spacing: .12em; }
-    .brew-caption strong { font: 700 24px/1.1 "Playfair Display", serif; }
-    .brew-copy > p { margin: 18px 0 25px; color: var(--muted); }
-    .brew-steps { border-top: 1px solid var(--line); }
-    .brew-step { display: grid; grid-template-columns: 52px 1fr; gap: 15px; padding: 18px 0; border-bottom: 1px solid var(--line); }
-    .step-number { color: var(--blue); font: 700 24px/1 "Playfair Display", serif; }
-    .brew-step h3 { margin: 0; font: 700 16px/1.5 "Noto Serif TC", serif; }
-    .brew-step p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
-
-    /* Subscribe and footer */
-    .visit { position: relative; overflow: hidden; padding: 108px 0 113px; color: #fff; text-align: center; background: var(--navy); }
-    .visit::before, .visit::after { position: absolute; width: 390px; height: 390px; border: 1px solid rgba(117,198,232,.17); border-radius: 50%; content: ""; }
-    .visit::before { top: -245px; left: -153px; box-shadow: 0 0 0 45px rgba(117,198,232,.035); }
-    .visit::after { right: -170px; bottom: -260px; box-shadow: 0 0 0 50px rgba(117,198,232,.035); }
-    .visit .wrap { position: relative; z-index: 1; max-width: 715px; }
-    .visit .eyebrow { justify-content: center; color: var(--sky); }
-    .visit h2 { margin: 0; font: 800 clamp(30px, 4vw, 46px)/1.3 "Noto Serif TC", serif; letter-spacing: .045em; }
-    .visit p { max-width: 510px; margin: 19px auto 29px; color: rgba(255,255,255,.72); }
-    .subscribe-form { display: flex; min-height: 58px; border: 1px solid rgba(255,255,255,.62); }
-    .subscribe-form input { min-width: 0; flex: 1; padding: 0 18px; border: 0; color: #fff; outline: none; background: transparent; }
-    .subscribe-form input::placeholder { color: rgba(255,255,255,.56); }
-    .subscribe-form button { padding: 0 23px; border: 0; color: var(--navy); background: var(--sand); font-size: 14px; font-weight: 700; white-space: nowrap; transition: background .2s; }
-    .subscribe-form button:hover { background: #f1cb8b; }
-    .site-footer { padding: 66px 0 23px; color: rgba(255,255,255,.68); background: #031c31; }
-    .footer-grid { display: grid; grid-template-columns: 1.45fr .8fr 1fr; gap: 55px; padding-bottom: 48px; }
-    .footer-brand .brand { margin-bottom: 16px; }
-    .footer-brand p { max-width: 330px; margin: 0; font-size: 14px; }
-    .footer-title { margin: 0 0 14px; color: var(--sky); font-size: 11px; font-weight: 700; letter-spacing: .18em; }
-    .footer-links { display: grid; gap: 8px; font-size: 14px; }
-    .footer-links a:hover { color: var(--sky); }
-    .footer-links address { font-style: normal; }
-    .footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.17); color: rgba(255,255,255,.44); font: 600 10px/1.5 "Playfair Display", serif; letter-spacing: .1em; }
-
-    .toast { position: fixed; z-index: 50; right: 22px; bottom: 22px; max-width: min(370px, calc(100vw - 44px)); padding: 14px 18px; border-left: 3px solid var(--sand); color: #fff; background: var(--navy); box-shadow: var(--shadow); font-size: 14px; opacity: 0; pointer-events: none; transform: translateY(12px); transition: opacity .25s ease, transform .25s ease; }
+    button, input, select, textarea { font: inherit; }
+    .container { width: min(1200px, calc(100% - 40px)); margin: 0 auto; }
+    .font-cute { font-family: 'Zen Maru Gothic', 'Noto Sans TC', sans-serif; }
+    .top-announcement { background: linear-gradient(90deg, #f7a24c, #ef6c35); color: #fff; text-align: center; padding: 10px 16px; font-size: 13.5px; font-weight: 700; letter-spacing: 0.04em; }
+    .top-announcement a { color: #fff; text-decoration: underline; margin-left: 6px; }
+    .header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-warm); }
+    .header-nav { display: flex; align-items: center; justify-content: space-between; height: 78px; }
+    .brand-logo { display: flex; align-items: center; gap: 12px; }
+    .brand-icon { width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; background: linear-gradient(135deg, var(--accent-warm), var(--primary-orange)); color: #fff; font-size: 24px; box-shadow: 0 8px 20px rgba(239,108,53,0.28); }
+    .brand-text h1 { margin: 0; font-size: 22px; line-height: 1.1; letter-spacing: 0.02em; font-weight: 900; color: var(--primary-deep); }
+    .brand-text span { display: block; color: var(--text-muted); font-size: 11px; letter-spacing: 0.14em; font-weight: 700; }
+    .nav-menu { display: flex; align-items: center; gap: 26px; list-style: none; margin: 0; padding: 0; }
+    .nav-menu a { position: relative; font-size: 15px; font-weight: 600; color: var(--text-main); padding: 6px 0; }
+    .nav-menu a::after { content: ''; position: absolute; left: 0; bottom: -2px; width: 100%; height: 2px; background: var(--primary-orange); transform: scaleX(0); transform-origin: right; transition: transform 0.25s ease; }
+    .nav-menu a:hover::after, .nav-menu a:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+    .nav-actions { display: flex; align-items: center; gap: 14px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 22px; border-radius: var(--radius-full); border: none; cursor: pointer; font-size: 15px; font-weight: 700; transition: all 0.25s ease; white-space: nowrap; }
+    .btn-primary { background: linear-gradient(135deg, var(--accent-warm), var(--primary-orange)); color: #fff; box-shadow: 0 8px 18px rgba(239,108,53,0.28); }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-secondary { background: var(--primary-light); color: var(--primary-orange); border: 1px solid var(--border-warm); }
+    .btn-secondary:hover { background: var(--primary-tint); transform: translateY(-2px); }
+    .hamburger-btn { display: none; border: none; background: transparent; font-size: 28px; color: var(--text-main); cursor: pointer; padding: 4px 8px; }
+    section { padding: 90px 0; }
+    .section-header { max-width: 680px; margin: 0 auto 52px; text-align: center; }
+    .badge-sub { display: inline-flex; align-items: center; gap: 6px; background: var(--primary-light); color: var(--primary-orange); border: 1px solid var(--border-warm); border-radius: var(--radius-full); font-size: 13px; font-weight: 800; letter-spacing: 0.05em; padding: 7px 15px; margin-bottom: 14px; }
+    .section-title { margin: 0 0 14px; font-size: clamp(28px, 4vw, 38px); line-height: 1.25; font-weight: 900; }
+    .section-title span { color: var(--primary-orange); }
+    .section-desc { margin: 0; font-size: 16px; color: var(--text-muted); }
+    .hero-section { padding: 60px 0 96px; background: radial-gradient(circle at 80% 20%, #ffe9dc 0%, var(--bg-cream) 72%); position: relative; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items: center; }
+    .hero-content { max-width: 580px; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: var(--primary-orange); border: 1px solid var(--border-warm); border-radius: var(--radius-full); padding: 8px 18px; font-size: 14px; font-weight: 800; box-shadow: 0 10px 18px rgba(239,108,53,0.08); margin-bottom: 22px; }
+    .hero-title { margin: 0 0 20px; font-size: clamp(34px, 5vw, 52px); line-height: 1.15; font-weight: 900; letter-spacing: -0.01em; }
+    .hero-title .highlight { color: var(--primary-orange); position: relative; display: inline-block; }
+    .hero-title .highlight::after { content: ''; position: absolute; left: 0; bottom: 4px; width: 100%; height: 10px; background: rgba(247,162,76,0.3); border-radius: 4px; z-index: -1; }
+    .hero-description { margin: 0 0 34px; font-size: 17px; color: var(--text-muted); }
+    .hero-btn-group { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 38px; }
+    .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; border-top: 1px dashed var(--border-warm); padding-top: 24px; }
+    .stat-item h4 { margin: 0; font-size: 28px; color: var(--primary-deep); font-weight: 900; line-height: 1.1; }
+    .stat-item p { margin: 4px 0 0; font-size: 13px; color: var(--text-muted); font-weight: 700; }
+    .hero-visual { position: relative; }
+    .hero-card-main { position: relative; overflow: hidden; border-radius: 28px; border: 4px solid #fff; box-shadow: var(--card-shadow); background: #fff; }
+    .hero-card-main img { width: 100%; height: 440px; object-fit: cover; }
+    .hero-floating-badge { position: absolute; left: 22px; bottom: 18px; display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.95); border: 1px solid var(--border-warm); border-radius: 18px; padding: 14px 18px; box-shadow: 0 12px 26px rgba(0,0,0,0.12); max-width: 270px; }
+    .floating-badge-icon { font-size: 28px; }
+    .floating-badge-text strong { display: block; color: var(--primary-deep); font-size: 14px; line-height: 1.3; }
+    .floating-badge-text span { display: block; color: var(--text-muted); font-size: 12px; }
+    .hero-sub-card { position: absolute; right: -16px; top: -18px; display: flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #ff8142, #ef6c35); color: #fff; border-radius: 18px; padding: 14px 18px; box-shadow: 0 16px 30px rgba(239,108,53,0.35); animation: floatBadge 3.5s ease-in-out infinite alternate; }
+    @keyframes floatBadge { 0% { transform: translateY(0); } 100% { transform: translateY(-10px); } }
+    .features-section { background: #fff; }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .feature-card { background: var(--bg-cream); border: 1px solid var(--border-warm); border-radius: var(--radius-lg); padding: 36px 30px; transition: all 0.25s ease; }
+    .feature-card:hover { transform: translateY(-6px); box-shadow: var(--card-hover); border-color: var(--accent-warm); background: #fff; }
+    .feature-icon-wrapper { width: 62px; height: 62px; display: grid; place-items: center; border-radius: 16px; background: var(--primary-light); font-size: 28px; color: var(--primary-orange); margin-bottom: 18px; }
+    .feature-card h3 { margin: 0 0 12px; font-size: 20px; font-weight: 900; }
+    .feature-card p { margin: 0; color: var(--text-muted); font-size: 15px; }
+    .cats-section { background: var(--bg-cream); }
+    .cat-filter-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-bottom: 40px; }
+    .tab-btn { border: 1.5px solid var(--border-warm); background: #fff; border-radius: var(--radius-full); color: var(--text-muted); padding: 10px 22px; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.25s ease; }
+    .tab-btn.active, .tab-btn:hover { background: var(--primary-orange); color: #fff; border-color: var(--primary-orange); box-shadow: 0 8px 18px rgba(239,108,53,0.2); }
+    .cats-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 24px; }
+    .cat-card { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--border-warm); border-radius: 24px; overflow: hidden; box-shadow: var(--card-shadow); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .cat-card:hover { transform: translateY(-8px); box-shadow: var(--card-hover); }
+    .cat-img-wrapper { position: relative; height: 230px; overflow: hidden; }
+    .cat-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .cat-card:hover .cat-img-wrapper img { transform: scale(1.08); }
+    .cat-badge { position: absolute; left: 14px; top: 14px; background: rgba(0,0,0,0.4); color: #fff; border-radius: var(--radius-full); padding: 5px 12px; font-size: 12px; font-weight: 700; }
+    .cat-card-body { padding: 20px 18px 18px; display: flex; flex-direction: column; flex: 1; }
+    .cat-card h3 { margin: 0; font-size: 24px; font-weight: 900; color: var(--text-main); }
+    .cat-meta { margin: 6px 0 14px; color: var(--text-muted); font-size: 14px; font-weight: 700; }
+    .cat-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+    .cat-tag { display: inline-block; background: var(--primary-light); color: var(--primary-orange); border-radius: var(--radius-full); padding: 5px 9px; font-size: 12px; font-weight: 700; }
+    .cat-card p { margin: 0 0 18px; font-size: 14px; color: var(--text-muted); }
+    .card-action { margin-top: auto; display: inline-flex; align-items: center; justify-content: center; width: 100%; padding: 11px 16px; border-radius: 12px; background: var(--primary-light); color: var(--primary-orange); font-weight: 800; border: 1px solid var(--border-warm); }
+    .adoption-section { background: #fff; }
+    .adoption-banner { background: linear-gradient(180deg, #fffaf6, #fff4ed); border: 2px dashed rgba(239,108,53,0.6); border-radius: 28px; padding: 28px; box-shadow: var(--card-shadow); }
+    .adoption-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 26px; }
+    .adoption-header h3 { margin: 0; font-size: clamp(26px, 3vw, 32px); font-weight: 900; }
+    .adoption-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--badge-adopt); color: #fff; border-radius: var(--radius-full); padding: 8px 14px; font-weight: 800; font-size: 13px; box-shadow: 0 8px 18px rgba(255,87,34,0.24); animation: pulseBadge 1.8s ease-in-out infinite alternate; }
+    @keyframes pulseBadge { 0% { transform: scale(1); } 100% { transform: scale(1.04); } }
+    .adoption-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; margin-top: 20px; }
+    .adoption-step { background: #fff; border: 1px solid var(--border-warm); border-radius: 18px; padding: 22px 20px; position: relative; }
+    .step-number { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: var(--primary-light); color: var(--primary-orange); font-weight: 900; margin-bottom: 12px; }
+    .adoption-step h4 { margin: 0 0 8px; font-size: 20px; font-weight: 900; }
+    .adoption-step p { margin: 0; color: var(--text-muted); font-size: 15px; }
+    .menu-section { background: var(--bg-cream); }
+    .menu-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; }
+    .menu-card { background: #fff; border: 1px solid var(--border-warm); border-radius: 24px; padding: 24px 22px; box-shadow: var(--card-shadow); }
+    .menu-card h3 { margin: 0 0 20px; font-size: 24px; font-weight: 900; color: var(--primary-deep); }
+    .menu-list { display: grid; gap: 14px; }
+    .menu-item { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding-bottom: 14px; border-bottom: 1px dashed var(--border-warm); }
+    .menu-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .menu-item strong { display: block; margin-bottom: 4px; font-size: 16px; font-weight: 800; }
+    .menu-item span { display: block; color: var(--text-muted); font-size: 13px; line-height: 1.6; }
+    .item-price { font-size: 16px; font-weight: 900; color: var(--primary-orange); white-space: nowrap; padding-top: 4px; }
+    .rules-section { background: #fff; }
+    .rules-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 22px; }
+    .rule-card { background: var(--bg-cream); border: 1px solid var(--border-warm); border-radius: 20px; padding: 26px 22px; }
+    .rule-card .rule-icon { font-size: 30px; margin-bottom: 10px; }
+    .rule-card h4 { margin: 0 0 8px; font-size: 18px; font-weight: 900; }
+    .rule-card p { margin: 0; color: var(--text-muted); font-size: 14px; }
+    .booking-section { background: var(--bg-cream); }
+    .booking-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 28px; align-items: start; }
+    .store-info-card, .booking-form { background: #fff; border: 1px solid var(--border-warm); border-radius: 24px; box-shadow: var(--card-shadow); }
+    .store-info-card { padding: 28px; }
+    .store-info-card h3 { margin: 0 0 18px; font-size: 28px; font-weight: 900; }
+    .store-list { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; color: var(--text-muted); font-size: 15px; }
+    .store-list li { display: flex; align-items: flex-start; gap: 10px; line-height: 1.6; }
+    .store-list strong { color: var(--text-main); }
+    .booking-form { padding: 28px; }
+    .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
+    .field { display: grid; gap: 8px; }
+    .field.full { grid-column: 1 / -1; }
+    label { color: var(--text-main); font-size: 14px; font-weight: 800; }
+    input, select, textarea { width: 100%; border: 1px solid var(--border-warm); border-radius: 12px; padding: 12px 14px; background: var(--bg-cream); color: var(--text-main); font-size: 15px; outline: none; }
+    input:focus, select:focus, textarea:focus { border-color: var(--primary-orange); box-shadow: 0 0 0 3px rgba(239,108,53,0.12); }
+    textarea { min-height: 120px; resize: vertical; }
+    .booking-submit { margin-top: 12px; width: 100%; padding: 14px 18px; font-size: 16px; font-weight: 800; }
+    .faq-section { background: #fff; }
+    .faq-list { max-width: 860px; margin: 0 auto; }
+    .faq-card { background: var(--bg-cream); border: 1px solid var(--border-warm); border-radius: 18px; overflow: hidden; margin-bottom: 14px; }
+    .faq-question { width: 100%; background: transparent; border: none; text-align: left; padding: 20px 22px; font-size: 16px; font-weight: 800; color: var(--text-main); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .faq-answer { max-height: 0; overflow: hidden; transition: all 0.25s ease; color: var(--text-muted); padding: 0 22px; font-size: 15px; }
+    .faq-card.open .faq-answer { max-height: 200px; padding: 0 22px 20px; }
+    .faq-toggle { font-size: 24px; color: var(--primary-orange); transition: transform 0.25s ease; }
+    .faq-card.open .faq-toggle { transform: rotate(45deg); }
+    .footer { background: #2e201b; color: rgba(255,255,255,0.82); padding: 60px 0 24px; }
+    .footer-grid { display: grid; grid-template-columns: 1.2fr 0.8fr 1fr 1.2fr; gap: 22px; margin-bottom: 28px; }
+    .footer-brand h3 { margin: 0 0 8px; color: #fff; font-size: 26px; font-weight: 900; }
+    .footer-brand p, .footer-col p, .footer-col a, .footer-col li { color: rgba(255,255,255,0.72); font-size: 15px; }
+    .socials { display: flex; gap: 10px; margin-top: 16px; }
+    .socials a { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,0.08); color: #fff; font-weight: 900; }
+    .footer-col h4 { margin: 0 0 10px; color: #fff; font-size: 18px; font-weight: 900; }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+    .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 18px; color: rgba(255,255,255,0.7); font-size: 14px; }
+    .toast { position: fixed; right: 24px; bottom: 24px; background: rgba(51,39,32,0.94); color: #fff; border-radius: 14px; padding: 14px 18px; box-shadow: 0 12px 24px rgba(0,0,0,0.18); opacity: 0; transform: translateY(20px); transition: all 0.25s ease; pointer-events: none; z-index: 200; font-weight: 700; }
     .toast.show { opacity: 1; transform: translateY(0); }
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    @media (max-width: 820px) {
-      .menu-toggle { display: grid; place-items: center; }
-      .nav { position: relative; }
-      .nav-links { position: absolute; top: 78px; right: -24px; left: -24px; max-height: 0; display: grid; gap: 0; overflow: hidden; background: #05233c; transition: max-height .35s ease; }
-      .nav-links.open { max-height: 300px; border-top: 1px solid rgba(255,255,255,.16); }
-      .nav-links a { display: block; padding: 13px 24px; }
-      .nav-links .nav-cta { margin: 5px 24px 15px; padding: 10px 13px; text-align: center; }
-      .hero { min-height: 710px; }
-      .hero-grid { min-height: 710px; grid-template-columns: 1fr; gap: 0; padding: 118px 0 43px; }
-      .hero-art { min-height: 276px; margin-top: -9px; }
-      .hero-art .sun { top: 19px; right: 20%; width: 130px; }
-      .mountain { height: 180px; }
-      .mountain--back { bottom: 69px; height: 150px; }
-      .coffee-vessel { right: 17%; bottom: -12px; transform: scale(.72); transform-origin: bottom right; }
-      .art-label { display: none; }
-      .scroll-cue { display: none; }
-      .story-grid, .brew-grid { grid-template-columns: 1fr; }
-      .story-visual { max-width: 525px; width: 100%; min-height: 400px; }
-      .coffee-grid { grid-template-columns: repeat(2, 1fr); }
-      .coffee-card:nth-child(3) { grid-column: span 2; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-      .footer-brand { grid-column: 1 / -1; }
+    @media (max-width: 992px) {
+      .features-grid, .menu-grid, .adoption-grid, .footer-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .cats-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .rules-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .hero-grid, .booking-grid { grid-template-columns: 1fr; }
+      .hero-content { max-width: none; text-align: center; }
+      .hero-btn-group { justify-content: center; }
+      .hero-stats { max-width: 500px; margin: 0 auto; }
+      .hero-card-main img { height: 420px; }
+      .adoption-header { flex-direction: column; align-items: flex-start; }
     }
-    @media (max-width: 560px) {
-      .wrap { width: calc(100% - 34px); }
-      .nav-links { right: -17px; left: -17px; }
-      .hero { min-height: 680px; }
-      .hero-grid { min-height: 680px; padding-top: 106px; }
-      .hero h1 { font-size: 40px; }
-      .hero-lede { font-size: 14px; }
-      .hero-actions { gap: 9px; margin-top: 24px; }
-      .hero-actions .button, .hero-actions .outline-link { min-height: 46px; padding: 8px 15px; font-size: 13px; }
-      .hero-note { margin-top: 21px; }
-      .hero-art { min-height: 219px; }
-      .hero-art .sun { width: 92px; }
-      .coffee-vessel { right: 5%; bottom: -48px; transform: scale(.57); }
-      .story, .coffee, .brew { padding: 76px 0; }
-      .seal { width: 245px; height: 245px; }
-      .seal-inner b { font-size: 35px; }
-      .story-visual { min-height: 347px; }
-      .blue-note { width: 185px; padding: 20px; }
-      .blue-note p { font-size: 16px; }
-      .section-heading { display: block; margin-bottom: 28px; }
-      .section-heading p { margin-top: 14px; font-size: 14px; }
-      .coffee-grid { grid-template-columns: 1fr; }
-      .coffee-card, .coffee-card:nth-child(3) { min-height: 330px; grid-column: auto; }
-      .coffee-card { padding: 25px; }
-      .brew-art { height: 310px; }
-      .water-rings { top: 45px; width: 178px; height: 178px; box-shadow: 0 0 0 23px rgba(117,198,232,.12), 0 0 0 53px rgba(117,198,232,.065); }
-      .dripper { top: 95px; transform: translateX(-50%) scale(.75); }
-      .carafe { bottom: 37px; transform: translateX(-50%) scale(.75); }
-      .visit { padding: 76px 0; }
-      .subscribe-form { display: grid; gap: 0; border: 0; }
-      .subscribe-form input { min-height: 54px; border: 1px solid rgba(255,255,255,.62); }
-      .subscribe-form button { min-height: 54px; margin-top: 10px; }
-      .footer-grid { grid-template-columns: 1fr; gap: 33px; }
-      .footer-brand { grid-column: auto; }
-      .footer-bottom { display: grid; gap: 8px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
-      .reveal { opacity: 1; transform: none; }
+    @media (max-width: 768px) {
+      .hamburger-btn { display: block; }
+      .nav-menu { position: absolute; left: 20px; right: 20px; top: 78px; display: none; flex-direction: column; align-items: flex-start; background: rgba(255,255,255,0.98); border: 1px solid var(--border-warm); border-radius: 16px; padding: 18px 18px 12px; box-shadow: var(--card-shadow); }
+      .nav-menu.open { display: flex; }
+      .nav-actions .btn-primary { display: none; }
+      .header-nav { height: 68px; }
+      .features-grid, .menu-grid, .adoption-grid, .rules-grid, .cats-grid, .footer-grid, .form-grid { grid-template-columns: 1fr; }
+      section { padding: 72px 0; }
+      .hero-section { padding-top: 36px; }
+      .hero-card-main img { height: 360px; }
+      .hero-stats { grid-template-columns: 1fr; }
+      .adoption-banner { padding: 18px; }
+      .footer-bottom { font-size: 12px; }
     }
   </style>
 </head>
 <body>
-  <header class="site-header" id="top">
-    <nav class="nav wrap" aria-label="主要導覽">
-      <a class="brand" href="#top" aria-label="回到藍天咖啡首頁">
-        <span class="brand-mark" aria-hidden="true">B</span>
-        <span class="brand-copy"><strong>藍天咖啡</strong><small>BLUE SKY COFFEE</small></span>
+  <div class="top-announcement">🐾 溫馨公告：本季待領養貓咪「麻糬」與「豆豆」已開放現場相見歡！歡迎來店互動 <a href="#adoption">了解領養詳情 →</a></div>
+  <header class="header">
+    <div class="container header-nav">
+      <a href="#top" class="brand-logo" aria-label="尋寵餐廳首頁">
+        <div class="brand-icon">🐾</div>
+        <div class="brand-text"><h1 class="font-cute">尋寵餐廳</h1><span>SEEK PET CAT RESTAURANT</span></div>
       </a>
-      <button class="menu-toggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-label="開啟導覽選單">☰</button>
-      <div class="nav-links" id="navLinks">
-        <a href="#story">我們的故事</a>
-        <a href="#coffee">本季選豆</a>
-        <a href="#brew">沖煮日常</a>
-        <a class="nav-cta" href="#visit">訂閱風味通信</a>
-      </div>
-    </nav>
+      <nav aria-label="主要導覽"><ul class="nav-menu" id="navMenu"><li><a href="#about">餐廳理念</a></li><li><a href="#cats">店貓夥伴</a></li><li><a href="#adoption">愛心領養</a></li><li><a href="#menu">美食饗宴</a></li><li><a href="#rules">與貓共餐</a></li><li><a href="#booking">預約訂位</a></li><li><a href="#faq">常見問題</a></li></ul></nav>
+      <div class="nav-actions"><a href="#booking" class="btn btn-primary">📅 線上預約用餐</a><button class="hamburger-btn" id="menuToggle" aria-label="開啟選單" aria-expanded="false">☰</button></div>
+    </div>
   </header>
 
   <main>
-    <section class="hero" aria-labelledby="heroTitle">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">HAND BREWED · SLOWLY ROASTED</p>
-          <h1 id="heroTitle">讓風味，在<span>藍天</span>下慢慢抵達。</h1>
-          <p class="hero-lede">藍天咖啡為喜歡手沖的您，挑選值得細品的單一產區咖啡豆。從第一縷花香，到最後一口回甘，每一杯都有屬於自己的晴朗天氣。</p>
-          <div class="hero-actions">
-            <a class="button button--sand" href="#coffee">探索本季咖啡豆 →</a>
-            <a class="outline-link" href="#story">認識藍天</a>
-          </div>
-          <p class="hero-note">TAIPEI · TAIWAN · EST. 2025</p>
-          <span class="scroll-cue">SCROLL TO DISCOVER</span>
+    <section class="hero-section" id="top">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-tag">🐱 全台首選・貓咪主題友善餐飲空間</div>
+          <h2 class="hero-title font-cute">每一口美味，都有<span class="highlight">溫暖貓咪</span>在身旁陪伴。</h2>
+          <p class="hero-description">專為愛貓人士打造的療癒用餐空間，提供義式主餐、手作甜點與店貓鮮食，讓每位來客都能在安心衛生的環境中，與貓咪共享美味時光。</p>
+          <div class="hero-btn-group"><a href="#booking" class="btn btn-primary">🐾 立即預約用餐體驗</a><a href="#cats" class="btn btn-secondary">認識店內貓咪們</a></div>
+          <div class="hero-stats"><div class="stat-item"><h4>15+</h4><p>親人可愛店貓陪伴</p></div><div class="stat-item"><h4>128+</h4><p>成功媒合愛心領養</p></div><div class="stat-item"><h4>4.9★</h4><p>千位貓友暖心推薦</p></div></div>
         </div>
-        <div class="hero-art" aria-hidden="true">
-          <div class="sun"></div>
-          <div class="mountain mountain--back"></div>
-          <div class="mountain"></div>
-          <div class="horizon"></div>
-          <div class="coffee-vessel"><div class="vessel-neck"></div><div class="vessel-body"></div><div class="vessel-handle"></div></div>
-          <div class="art-label"><strong>92°C</strong><span>理想水溫</span><span>細細喚醒香氣</span></div>
+        <div class="hero-visual">
+          <div class="hero-card-main"><img src="https://images.unsplash.com/photo-1511044568932-338cba0ad803?auto=format&fit=crop&w=1200&q=80" alt="貓咪在餐桌旁陪伴用餐" /></div>
+          <div class="hero-floating-badge"><div class="floating-badge-icon">🍲</div><div class="floating-badge-text"><strong>獨立衛生出餐環境</strong><span>嚴格落實人貓共存衛生標準</span></div></div>
+          <div class="hero-sub-card"><span>🏠</span><span>以領養代替購買</span></div>
         </div>
       </div>
     </section>
 
-    <section class="story" id="story" aria-labelledby="storyTitle">
-      <div class="wrap story-grid">
-        <div class="story-visual reveal" aria-hidden="true">
-          <div class="seal"><div class="seal-inner"><b>B</b><span>慢一點，更清楚。</span><small>LET THE FLAVOUR SPEAK</small></div></div>
-          <aside class="blue-note"><p class="eyebrow">BLUE SKY NOTE</p><p>一杯好咖啡，從來不是匆忙完成的事。</p></aside>
-        </div>
-        <div class="story-copy reveal">
-          <p class="eyebrow">OUR PHILOSOPHY</p>
-          <h2 class="section-title" id="storyTitle">在一杯之間，看見產地的<span class="text-blue">晴朗</span>。</h2>
-          <p>我們相信，精品咖啡的美好不該被複雜掩蓋。以小批次烘焙留住豆子的個性，再用穩定、誠實的手沖，讓風土與時間在杯中變得清晰。</p>
-          <p>給懂得放慢腳步的人，也給每一個想重新認識咖啡的人。</p>
-          <a class="inline-link" href="#brew">看看我們如何沖煮 <span aria-hidden="true">→</span></a>
+    <section id="about" class="features-section">
+      <div class="container">
+        <div class="section-header"><div class="badge-sub">🐾 餐廳理念</div><h3 class="section-title">安心、療癒、與毛孩一起享受美味的每一刻</h3><p class="section-desc">我們相信，好的餐飲體驗不只是美味，更是人與貓都能安心感受的空間。</p></div>
+        <div class="features-grid">
+          <article class="feature-card"><div class="feature-icon-wrapper">⭐</div><h3>五星級安心人貓分區</h3><p>獨立密閉玻璃備餐廚房與透明餐蓋，讓每一份餐點都保持乾淨安全，安心享受共餐。</p></article>
+          <article class="feature-card"><div class="feature-icon-wrapper">🐈</div><h3>店貓自由社交空間</h3><p>空中貓走廊、磨爪立柱與安靜休息區，尊重每位貓咪的自由意志與舒適感。</p></article>
+          <article class="feature-card"><div class="feature-icon-wrapper">💛</div><h3>實體愛心領養平台</h3><p>與浪浪中途之家合作，讓顧客在日常相處中找到命定毛孩，讓愛與家庭延續下去。</p></article>
         </div>
       </div>
     </section>
 
-    <section class="coffee" id="coffee" aria-labelledby="coffeeTitle">
-      <div class="wrap">
-        <div class="section-heading reveal">
-          <div><p class="eyebrow">SEASONAL SELECTION</p><h2 class="section-title" id="coffeeTitle">今天，想喝哪一片<span class="text-blue">藍天</span>？</h2></div>
-          <p>三款當季單品，為不同的晨光、午後與靜夜而選。</p>
-        </div>
-        <div class="coffee-grid">
-          <article class="coffee-card reveal">
-            <div class="card-top">01 / BRIGHT</div><p class="origin">ETHIOPIA · YIRGACHEFFE</p><h3>衣索比亞・耶加雪菲</h3><p class="flavour">白花、佛手柑、蜂蜜</p>
-            <div class="card-footer"><span class="price">NT$ 520 / 200g</span><button class="save-coffee" type="button" data-coffee="衣索比亞・耶加雪菲">加入收藏 ＋</button></div>
-          </article>
-          <article class="coffee-card reveal">
-            <div class="card-top">02 / JUICY</div><p class="origin">KENYA · KIRINYAGA</p><h3>肯亞・祈安布</h3><p class="flavour">黑醋栗、洛神、葡萄柚</p>
-            <div class="card-footer"><span class="price">NT$ 580 / 200g</span><button class="save-coffee" type="button" data-coffee="肯亞・祈安布">加入收藏 ＋</button></div>
-          </article>
-          <article class="coffee-card reveal">
-            <div class="card-top">03 / ROUND</div><p class="origin">COLOMBIA · HUILA</p><h3>哥倫比亞・慧蘭</h3><p class="flavour">黃桃、焦糖、可可尾韻</p>
-            <div class="card-footer"><span class="price">NT$ 460 / 200g</span><button class="save-coffee" type="button" data-coffee="哥倫比亞・慧蘭">加入收藏 ＋</button></div>
-          </article>
+    <section id="cats" class="cats-section">
+      <div class="container">
+        <div class="section-header"><div class="badge-sub">🐈 店貓夥伴</div><h3 class="section-title">認識店裡的可愛貓咪們</h3><p class="section-desc">每位店貓都是這間餐廳的靈魂人物，陪伴每一位顧客，帶來療癒與驚喜。</p></div>
+        <div class="cat-filter-tabs"><button class="tab-btn active" data-filter="all">全部貓咪夥伴</button><button class="tab-btn" data-filter="resident">熱情常駐店貓</button><button class="tab-btn" data-filter="adoptable">🏠 尋找永遠的家</button></div>
+        <div class="cats-grid">
+          <article class="cat-card" data-category="resident"><div class="cat-img-wrapper"><span class="cat-badge">常駐店長</span><img src="https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?auto=format&fit=crop&w=800&q=80" alt="橘白貓阿橘" /></div><div class="cat-card-body"><h3>阿橘</h3><div class="cat-meta">♂ 3歲 · 橘白米克斯</div><div class="cat-tags"><span class="cat-tag">#超級親人</span><span class="cat-tag">#摸摸專家</span></div><p>暖男店長，主動蹭腿、喜歡陪伴客人，最擅長呼嚕安撫日常疲憊。</p><a href="#booking" class="card-action">點擊打招呼</a></div></article>
+          <article class="cat-card" data-category="adoptable"><div class="cat-img-wrapper"><span class="cat-badge">待領養</span><img src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?auto=format&fit=crop&w=800&q=80" alt="待領養三花貓麻糬" /></div><div class="cat-card-body"><h3>麻糬</h3><div class="cat-meta">♀ 10個月 · 白底三花</div><div class="cat-tags"><span class="cat-tag">#親人安靜</span><span class="cat-tag">#已結紮</span></div><p>溫柔害羞、肉泥引導即翻肚，適合安靜家庭，慢慢陪伴就會黏人。</p><a href="#booking" class="card-action">預約相見</a></div></article>
+          <article class="cat-card" data-category="resident"><div class="cat-img-wrapper"><span class="cat-badge">常駐巡察員</span><img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=800&q=80" alt="黑白賓士貓皮皮" /></div><div class="cat-card-body"><h3>皮皮</h3><div class="cat-meta">♂ 2歲 · 正統黑白賓士</div><div class="cat-tags"><span class="cat-tag">#好奇寶寶</span><span class="cat-tag">#燕尾服帥哥</span></div><p>好奇心旺盛，喜歡站在櫃台邊看客人吃甜點，眼神超有氣場。</p><a href="#booking" class="card-action">點擊打招呼</a></div></article>
+          <article class="cat-card" data-category="adoptable"><div class="cat-img-wrapper"><span class="cat-badge">待領養</span><img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=800&q=80" alt="虎斑貓豆豆" /></div><div class="cat-card-body"><h3>豆豆</h3><div class="cat-meta">♂ 6個月 · 虎斑米克斯</div><div class="cat-tags"><span class="cat-tag">#超級黏人</span><span class="cat-tag">#已打預防針</span></div><p>小小年紀超黏人，愛跟大貓一起玩，呼嚕聲像小型引擎。</p><a href="#booking" class="card-action">預約相見</a></div></article>
         </div>
       </div>
     </section>
 
-    <section class="brew" id="brew" aria-labelledby="brewTitle">
-      <div class="wrap brew-grid">
-        <div class="brew-art reveal" aria-hidden="true"><div class="water-rings"></div><div class="dripper"></div><div class="carafe"></div><div class="brew-caption"><span>V60 / 15G : 240ML</span><strong>2'45''</strong></div></div>
-        <div class="brew-copy reveal">
-          <p class="eyebrow">A QUIET RITUAL</p>
-          <h2 class="section-title" id="brewTitle">把時間交給水，讓咖啡說<span class="text-blue">自己的話</span>。</h2>
-          <p>不需要繁複儀式，只要三個安靜的步驟。每一個參數，都是為了讓你更靠近豆子原本的樣子。</p>
-          <div class="brew-steps">
-            <div class="brew-step"><span class="step-number">01</span><div><h3>研磨，先聞見期待</h3><p>15g 中細研磨，讓香氣從指尖開始展開。</p></div></div>
-            <div class="brew-step"><span class="step-number">02</span><div><h3>悶蒸，等待第一個呼吸</h3><p>以 92°C 熱水浸潤 30 秒，喚醒甜感與層次。</p></div></div>
-            <div class="brew-step"><span class="step-number">03</span><div><h3>注水，保持自己的節奏</h3><p>穩定畫圈，讓 240ml 的清澈在 2 分 45 秒完成。</p></div></div>
-          </div>
-        </div>
+    <section id="adoption" class="adoption-section">
+      <div class="container">
+        <div class="adoption-banner"><div class="adoption-header"><h3>店內支持領養・以領養代替購買</h3><div class="adoption-tag">💗 愛心送養角落</div></div><p class="section-desc" style="text-align:left; margin-bottom:18px;">我們承諾不收中介費，並補助前半年健檢，讓領養過程更透明、更安心。</p><div class="adoption-grid"><div class="adoption-step"><div class="step-number">1</div><h4>來店互動</h4><p>預約用餐並在專屬領養區與貓咪深度接觸，互相了解。</p></div><div class="adoption-step"><div class="step-number">2</div><h4>申請與評估</h4><p>填寫認養問卷，由志工進行環境評估與生活適配觀察。</p></div><div class="adoption-step"><div class="step-number">3</div><h4>接毛孩回家</h4><p>簽訂領養切結書，幸福開啟新家庭生活，並提供後續陪伴。</p></div></div></div>
       </div>
     </section>
 
-    <section class="visit" id="visit" aria-labelledby="visitTitle">
-      <div class="wrap reveal">
-        <p class="eyebrow">THE BLUE SKY LETTER</p>
-        <h2 id="visitTitle">把下一杯好咖啡，寄到你的日常裡。</h2>
-        <p>每月一封風味通信，分享新豆、沖煮靈感與只給會員的小小驚喜。</p>
-        <form class="subscribe-form" id="subscribeForm">
-          <input type="email" aria-label="電子郵件地址" placeholder="your@email.com" required>
-          <button type="submit">訂閱風味通信</button>
-        </form>
+    <section id="menu" class="menu-section">
+      <div class="container">
+        <div class="section-header"><div class="badge-sub">🍽️ 美食饗宴</div><h3 class="section-title">人貓雙享的療癒餐點</h3><p class="section-desc">從義式經典到甜點與貓咪鮮食，我們用心為每位客人和毛孩製作最舒適的餐飲體驗。</p></div>
+        <div class="menu-grid"><div class="menu-card"><h3>義式經典料理</h3><div class="menu-list"><div class="menu-item"><div><strong>貓掌奶油鮭魚燉飯</strong><span>北海道鮮奶油、酥煎鮭魚與貓肉球造型</span></div><div class="item-price">NT$ 360</div></div><div class="menu-item"><div><strong>迷迭香蒜烤嫩雞胸義大利麵</strong><span>舒肥雞胸佐橄欖油與香蒜醬汁</span></div><div class="item-price">NT$ 320</div></div><div class="menu-item"><div><strong>日式黃金炸豬排咖哩飯</strong><span>洋蔥蘋果咖哩與厚切豬排</span></div><div class="item-price">NT$ 340</div></div></div></div><div class="menu-card"><h3>療癒手作甜點</h3><div class="menu-list"><div class="menu-item"><div><strong>3D 立體貓拉花拿鐵</strong><span>現場手雕貓咪奶泡，視覺與味道兼具</span></div><div class="item-price">NT$ 180</div></div><div class="menu-item"><div><strong>肉球舒芙蕾厚鬆餅</strong><span>蓬鬆口感搭配莓果與蜂蜜</span></div><div class="item-price">NT$ 220</div></div><div class="menu-item"><div><strong>暖陽橘子戚風蛋糕</strong><span>熊本麵粉與清爽柑橘香氣</span></div><div class="item-price">NT$ 160</div></div></div></div><div class="menu-card"><h3>貓咪專屬鮮食</h3><div class="menu-list"><div class="menu-item"><div><strong>純肉鮮嫩雞胸凍</strong><span>低鈉純肉蒸煮，加木匙更適合餵食</span></div><div class="item-price">NT$ 90</div></div><div class="menu-item"><div><strong>野生鮭魚肉泥貓草點心棒</strong><span>天然鮭魚泥與貓草、獨特口感</span></div><div class="item-price">NT$ 110</div></div><div class="menu-item"><div><strong>店貓打賞分享盤</strong><span>可與 5–8 隻貓咪共享互動點心</span></div><div class="item-price">NT$ 200</div></div></div></div></div>
+      </div>
+    </section>
+
+    <section id="rules" class="rules-section">
+      <div class="container">
+        <div class="section-header"><div class="badge-sub">📋 共餐守則</div><h3 class="section-title">與貓咪共享美好時光的基本禮儀</h3><p class="section-desc">這裡是有規範的安心空間，我們重視每位客人和貓咪的舒適與安全。</p></div>
+        <div class="rules-grid"><div class="rule-card"><div class="rule-icon">🧼</div><h4>入座前雙手消毒</h4><p>更換室內消毒拖鞋，並以植物性洗手乳或酒精消毒雙手。</p></div><div class="rule-card"><div class="rule-icon">🚫</div><h4>嚴禁餵食人類餐點</h4><p>人類調味料對貓咪不安全，請僅使用店內專屬貓鮮食互動。</p></div><div class="rule-card"><div class="rule-icon">📸</div><h4>拍照請關閉閃光燈</h4><p>保護貓咪敏銳視網膜，讓它們能自在休息與社交。</p></div><div class="rule-card"><div class="rule-icon">💤</div><h4>請勿打擾熟睡的貓</h4><p>輕聲細語，尊重貓咪安穩的休息時段，避免強行抱起。</p></div></div>
+      </div>
+    </section>
+
+    <section id="booking" class="booking-section">
+      <div class="container booking-grid">
+        <div class="store-info-card"><h3>門市資訊</h3><ul class="store-list"><li>⏰ <span><strong>營業時間</strong><br />週二至週日 11:30 – 21:00（每週一固定公休消毒）</span></li><li>📞 <span><strong>預約專線</strong><br />(02) 2778-9899 / LINE: @seekpet_cafe</span></li><li>💡 <span><strong>低消與規範</strong><br />每人任一品項低消、免收清潔費，平日不限時，假日 120 分鐘</span></li><li>📍 <span><strong>門市地址</strong><br />台北市中山區樂群二路 42 號 3 樓</span></li></ul></div>
+        <form class="booking-form" id="reservationForm"><div class="form-grid"><div class="field"><label for="name">預約大名</label><input id="name" name="name" type="text" placeholder="例：林小安" required /></div><div class="field"><label for="phone">聯絡電話</label><input id="phone" name="phone" type="tel" placeholder="例：0912-345-678" required /></div><div class="field"><label for="bookingDate">用餐日期</label><input id="bookingDate" name="date" type="date" required /></div><div class="field"><label for="bookingTime">預約時段</label><select id="bookingTime" name="time" required><option value="">請選擇</option><option>11:30</option><option>13:30</option><option>15:30</option><option>17:30</option><option>19:30</option></select></div><div class="field"><label for="guests">用餐人數</label><select id="guests" name="guests" required><option value="">請選擇</option><option>1位</option><option>2位</option><option>3位</option><option>4位</option><option>5位以上</option></select></div><div class="field"><label for="interest">是否有興趣了解待領養貓咪？</label><select id="interest" name="interest"><option>純用餐</option><option>對領養有高度意願</option><option>想先了解流程</option></select></div><div class="field full"><label for="notes">特殊需求或備註說明</label><textarea id="notes" name="notes" placeholder="例如：有過敏需求、想要安靜區座位、想了解領養流程"></textarea></div></div><button type="submit" class="btn btn-primary booking-submit">🐾 確認送出預約申請</button></form>
+      </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+      <div class="container">
+        <div class="section-header"><div class="badge-sub">❓ 常見問答</div><h3 class="section-title">你可能會問的幾件事</h3></div>
+        <div class="faq-list"><div class="faq-card open"><button class="faq-question" type="button"><span>可以帶自己家裡的貓咪或寵物一起來用餐嗎？</span><span class="faq-toggle">＋</span></button><div class="faq-answer">為防地域爭端與傳染緊迫，目前暫不開放自備寵物，讓每位顧客與店貓都能安心共享空間。</div></div><div class="faq-card"><button class="faq-question" type="button"><span>餐廳內的餐點衛生如何維持？貓毛會不會掉進菜餚？</span><span class="faq-toggle">＋</span></button><div class="faq-answer">我們採用密閉玻璃廚房備餐隔離、餐點全罩防護蓋與醫療級 HEPA 空氣清淨機，確保環境衛生與飲食安心。</div></div><div class="faq-card"><button class="faq-question" type="button"><span>如果在現場愛上了待領養貓咪，可以當天直接帶走嗎？</span><span class="faq-toggle">＋</span></button><div class="faq-answer">不接受衝動領養，需經審核問卷、門窗防護確認與 7 天冷靜期，確保最適合毛孩與家庭的安排。</div></div><div class="faq-card"><button class="faq-question" type="button"><span>有接待幾歲以下的小朋友嗎？</span><span class="faq-toggle">＋</span></button><div class="faq-answer">我們接待 6 歲以上兒童，需家長全程陪同指導動物友善禮儀，並確保貓咪與小朋友都能舒適相處。</div></div></div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap footer-grid">
-      <div class="footer-brand"><a class="brand" href="#top" aria-label="回到藍天咖啡首頁"><span class="brand-mark" aria-hidden="true">B</span><span class="brand-copy"><strong>藍天咖啡</strong><small>BLUE SKY COFFEE</small></span></a><p>為喜愛手沖咖啡的你，留下 一段慢慢品味、微微放晴的時間。</p></div>
-      <div><p class="footer-title">網站主題</p><div class="footer-links"><a href="#story">我們的故事</a><a href="#coffee">本季選豆</a><a href="#brew">沖煮日常</a></div></div>
-      <div><p class="footer-title">聯絡我們</p><div class="footer-links"><a href="mailto:hello@bluesky.coffee">hello@bluesky.coffee</a><address>台中市西屯區僑光路 100 號</address><span>每日 10:00 — 19:00</span></div></div>
-    </div>
-    <div class="wrap footer-bottom"><span>© 2025 BLUE SKY COFFEE. ALL RIGHTS RESERVED.</span><span>BREW SLOW · LIVE BRIGHT</span></div>
+  <footer class="footer">
+    <div class="container footer-grid"><div class="footer-brand footer-col"><h3>尋寵餐廳</h3><p>以溫暖陪伴為核心理念，打造安心、療癒、友善的貓咪共餐空間，讓每一餐都充滿愛。</p><div class="socials"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="LINE">L</a></div></div><div class="footer-col"><h4>快速連結</h4><ul><li><a href="#about">品牌故事</a></li><li><a href="#cats">店貓夥伴</a></li><li><a href="#adoption">愛心領養</a></li><li><a href="#menu">精緻菜單</a></li><li><a href="#rules">共餐禮儀</a></li></ul></div><div class="footer-col"><h4>營業與服務</h4><ul><li><a href="#booking">線上訂位</a></li><li><a href="#faq">常見問題</a></li><li>團體包場</li><li>中途合作</li><li>衛生保證</li></ul></div><div class="footer-col"><h4>門市營業資訊</h4><ul><li>台北市中山區樂群二路 42 號 3 樓</li><li>週二–週日 11:30 – 21:00</li><li>(02) 2778-9899</li><li>service@seekpet.tw</li></ul></div></div>
+    <div class="container footer-bottom">© 2026 尋寵餐廳 SEEK PET RESTAURANT. ALL RIGHTS RESERVED.<br />支持以領養代替購買 · 珍惜身邊每隻毛孩</div>
   </footer>
-  <div class="toast" role="status" aria-live="polite"></div>
 
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script>
-    (() => {
-      const menuButton = document.querySelector('.menu-toggle');
-      const navLinks = document.querySelector('.nav-links');
-      const toast = document.querySelector('.toast');
-      let toastTimer;
-
-      const closeMenu = () => {
-        navLinks.classList.remove('open');
-        menuButton.setAttribute('aria-expanded', 'false');
-        menuButton.setAttribute('aria-label', '開啟導覽選單');
-        menuButton.textContent = '☰';
-      };
-      menuButton.addEventListener('click', () => {
-        const opening = !navLinks.classList.contains('open');
-        navLinks.classList.toggle('open', opening);
-        menuButton.setAttribute('aria-expanded', String(opening));
-        menuButton.setAttribute('aria-label', opening ? '關閉導覽選單' : '開啟導覽選單');
-        menuButton.textContent = opening ? '×' : '☰';
-      });
-      navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-
-      const showToast = message => {
-        clearTimeout(toastTimer);
-        toast.textContent = message;
-        toast.classList.add('show');
-        toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
-      };
-      document.querySelectorAll('[data-coffee]').forEach(button => {
-        button.addEventListener('click', () => showToast(`已將「${button.dataset.coffee}」加入你的收藏。`));
-      });
-      document.querySelector('#subscribeForm').addEventListener('submit', event => {
-        event.preventDefault();
-        event.currentTarget.reset();
-        showToast('謝謝訂閱，下一封晴朗的風味通信即將寄出。');
-      });
-
-      const revealItems = document.querySelectorAll('.reveal');
-      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (!('IntersectionObserver' in window) || reducedMotion) {
-        revealItems.forEach(item => item.classList.add('visible'));
-      } else {
-        const observer = new IntersectionObserver(entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: .12 });
-        revealItems.forEach(item => observer.observe(item));
-      }
-    })();
+    const navMenu = document.getElementById('navMenu');
+    const menuToggle = document.getElementById('menuToggle');
+    const reservationForm = document.getElementById('reservationForm');
+    const bookingDate = document.getElementById('bookingDate');
+    const toast = document.getElementById('toast');
+    function showToast(message, icon = '🐾') { toast.textContent = `${icon} ${message}`; toast.classList.add('show'); clearTimeout(showToast.timer); showToast.timer = setTimeout(() => toast.classList.remove('show'), 3500); }
+    if (menuToggle) { menuToggle.addEventListener('click', () => { const isOpen = navMenu.classList.toggle('open'); menuToggle.textContent = isOpen ? '✕' : '☰'; menuToggle.setAttribute('aria-expanded', String(isOpen)); menuToggle.setAttribute('aria-label', isOpen ? '關閉選單' : '開啟選單'); }); navMenu.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { navMenu.classList.remove('open'); menuToggle.textContent = '☰'; menuToggle.setAttribute('aria-expanded', 'false'); menuToggle.setAttribute('aria-label', '開啟選單'); }); }); }
+    document.querySelectorAll('.tab-btn').forEach(button => { button.addEventListener('click', () => { const filter = button.dataset.filter; document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.toggle('active', btn === button)); document.querySelectorAll('.cat-card').forEach(card => { const show = filter === 'all' || card.dataset.category === filter; card.style.display = show ? 'flex' : 'none'; }); }); });
+    document.querySelectorAll('.faq-question').forEach(button => { button.addEventListener('click', () => { const card = button.closest('.faq-card'); const isOpen = card.classList.contains('open'); document.querySelectorAll('.faq-card').forEach(item => item.classList.remove('open')); if (!isOpen) card.classList.add('open'); }); });
+    if (bookingDate) { const today = new Date(); const yyyy = today.getFullYear(); const mm = String(today.getMonth() + 1).padStart(2, '0'); const dd = String(today.getDate()).padStart(2, '0'); bookingDate.min = `${yyyy}-${mm}-${dd}`; }
+    if (reservationForm) { reservationForm.addEventListener('submit', (event) => { event.preventDefault(); const name = document.getElementById('name').value.trim() || '朋友'; const date = document.getElementById('bookingDate').value; const time = document.getElementById('bookingTime').value; const guests = document.getElementById('guests').value; showToast(`感謝 ${name}！已收到您在 ${date} ${time} (${guests}) 的預約申請，店員將盡快與您確認。`); reservationForm.reset(); }); }
   </script>
 </body>
 </html>
