@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="尋寵餐廳專為貓咪愛好者打造溫馨同餐空間，提供人氣料理、手作甜點與貓咪鮮食，也全力支持浪貓愛心領養。">
+  <meta name="description" content="尋寵餐廳專為貓咪愛好者打造的溫馨同餐空間。提供人氣私房美味料理與特製貓咪鮮食，店內常駐多隻親人店貓陪伴，並全力支持浪貓愛心領養，讓每一頓飯都充滿療癒與愛。">
   <meta name="theme-color" content="#fdfaf6">
-  <title>尋寵餐廳｜與貓咪共進溫暖美味食光</title>
+  <title>尋寵餐廳｜與貓咪共進溫暖美味食光・支持愛心領養</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&family=Zen+Maru+Gothic:wght@500;600;700;900&display=swap" rel="stylesheet">
@@ -134,18 +134,11 @@
     .rule span { font-size: 25px; }
     .rule h3 { margin: 10px 0 5px; font-size: 15px; }
     .rule p { margin: 0; color: var(--muted); font-size: 12px; }
-    .brew-grid { display: grid; grid-template-columns: .93fr 1.07fr; gap: 50px; align-items: center; }
-    .video-frame { overflow: hidden; padding: 15px; border-radius: 20px; background: #e9f2ed; }
-    .video-frame iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 12px; background: #d8e6dd; }
-    .video-link { display: inline-block; margin: 10px 0 0 3px; color: var(--green); font-size: 12px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
-    .brew-copy h2 { margin: 0; font-size: clamp(26px, 3vw, 36px); line-height: 1.4; }
-    .brew-copy h2 span { color: var(--green); }
-    .brew-copy > p { margin: 12px 0 20px; color: var(--muted); font-size: 13px; }
-    .brew-steps { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
-    .brew-steps li { display: grid; grid-template-columns: 42px 1fr; gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--line); }
-    .brew-steps li > b { color: var(--green); font-family: "Zen Maru Gothic", sans-serif; font-size: 20px; }
-    .brew-steps strong { font-size: 13px; }
-    .brew-steps p { margin: 2px 0 0; color: var(--muted); font-size: 11px; }
+    .about-video { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; margin-top: 28px; }
+    .video-frame { overflow: hidden; padding: 12px; border: 1px solid var(--line); border-radius: 20px; background: #fffaf6; }
+    .video-frame iframe { display: block; width: 100%; aspect-ratio: 560 / 315; border: 0; border-radius: 12px; background: #f4e7dc; }
+    .video-copy h3 { margin: 0; font-size: 23px; }
+    .video-copy p { margin: 9px 0 0; color: var(--muted); font-size: 13px; }
     .booking-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 22px; align-items: start; }
     .store-info, .reservation { padding: 25px; border: 1px solid var(--line); border-radius: var(--round); background: white; }
     .store-info h3, .reservation h3 { margin: 0 0 17px; font-size: 21px; }
@@ -197,7 +190,15 @@
       .booking-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: repeat(2, 1fr); }
     }
-    @media (max-width: 767px) {
+    @media (max-width: 992px) {
+      .hero-grid { grid-template-columns: 1fr; justify-items: center; gap: 32px; text-align: center; }
+      .hero-content { display: grid; justify-items: center; }
+      .hero-copy { max-width: 640px; }
+      .hero-visual { width: min(100%, 460px); margin: auto; }
+      .adoption { grid-template-columns: 1fr; }
+      .about-video { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
       html { scroll-padding-top: 76px; }
       .container { width: min(100% - 34px, 600px); }
       .announcement { font-size: 11px; }
@@ -205,8 +206,8 @@
       .brand-mark { width: 40px; }
       .brand-name { font-size: 17px; }
       .menu-toggle { display: block; }
-      .nav-menu { position: absolute; top: 68px; right: -17px; left: -17px; display: grid; gap: 0; max-height: 0; overflow: hidden; padding: 0 22px; background: white; box-shadow: 0 12px 20px rgba(51,39,32,.09); transition: max-height .25s ease, padding .25s ease; }
-      .nav-menu.open { max-height: 420px; padding-top: 10px; padding-bottom: 16px; }
+      .nav-menu { position: absolute; top: 68px; right: -17px; left: -17px; display: grid; gap: 0; padding: 10px 22px 16px; background: white; box-shadow: 0 12px 20px rgba(51,39,32,.09); transform: translateY(-120%); visibility: hidden; transition: transform .25s ease, visibility .25s ease; }
+      .nav-menu.open { transform: translateY(0); visibility: visible; }
       .nav-menu a { min-height: 44px; }
       .nav-menu .nav-book { display: inline-flex; justify-self: start; margin-top: 5px; padding-inline: 16px; }
       .hero { padding: 42px 0 48px; }
@@ -227,7 +228,6 @@
       .steps { grid-template-columns: 1fr; }
       .menu-column { display: block; }
       .menu-photo { height: 190px; min-height: 0; }
-      .brew-grid { grid-template-columns: 1fr; gap: 28px; }
       .form-grid { grid-template-columns: 1fr; }
       .field.full { grid-column: auto; }
       .store-info, .reservation { padding: 20px; }
@@ -242,7 +242,7 @@
   </style>
 </head>
 <body>
-  <div class="announcement">🐾 溫馨公告：本季待領養貓咪「麻糬」與「豆豆」已開放現場相見歡！<a href="#adoption">了解領養詳情 →</a></div>
+  <div class="announcement">🐾 溫馨公告：本季待領養貓咪「麻糬」與「豆豆」已開放現場相見歡！歡迎來店互動<a href="#adoption">了解領養詳情 →</a></div>
   <header class="header" id="top">
     <nav class="nav-row container" aria-label="主要導覽">
       <a class="brand" href="#top" aria-label="尋寵餐廳首頁">
@@ -251,7 +251,7 @@
       </a>
       <button class="menu-toggle" id="menuToggle" type="button" aria-controls="navMenu" aria-expanded="false" aria-label="開啟導覽選單">☰</button>
       <ul class="nav-menu" id="navMenu">
-        <li><a href="#about">餐廳理念</a></li><li><a href="#cats">店貓夥伴</a></li><li><a href="#adoption">愛心領養</a></li><li><a href="#menu">美食饗宴</a></li><li><a href="#rules">與貓共餐</a></li><li><a href="#faq">常見問題</a></li><li><a class="nav-book" href="#booking">🐾 線上預約</a></li>
+        <li><a href="#about">餐廳理念</a></li><li><a href="#cats">店貓夥伴</a></li><li><a href="#adoption">愛心領養</a></li><li><a href="#menu">美食饗宴</a></li><li><a href="#rules">與貓共餐</a></li><li><a href="#booking">預約訂位</a></li><li><a href="#faq">常見問題</a></li><li><a class="nav-book" href="#booking"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>線上預約用餐</a></li>
       </ul>
     </nav>
   </header>
@@ -265,7 +265,7 @@
           <div class="actions"><a class="button button-primary" href="#booking">🐾 立即預約用餐體驗</a><a class="button button-soft" href="#cats">認識店內貓咪們</a></div>
           <div class="stats" aria-label="餐廳數據"><div class="stat"><strong>15+</strong><span>親人店貓陪伴</span></div><div class="stat"><strong>128+</strong><span>成功媒合領養</span></div><div class="stat"><strong>4.9★</strong><span>貓友暖心推薦</span></div></div>
         </div>
-        <div class="hero-visual reveal"><img class="hero-photo" src="images/hero-onepage1.jpg" alt="窗邊桌上的貓咪與窗外藍天山景" fetchpriority="high"><div class="photo-stamp"><strong>相遇・<br>相伴</strong><span>每段關係都值得被珍惜</span></div></div>
+        <div class="hero-visual reveal"><img class="hero-photo" src="images/hero.jpg" alt="貓咪在溫暖的餐廳空間陪伴來客" fetchpriority="high"><div class="photo-stamp"><strong>相遇・<br>相伴</strong><span>每段關係都值得被珍惜</span></div></div>
       </div>
     </section>
     <section class="section section-white" id="about" aria-labelledby="aboutTitle">
@@ -276,12 +276,16 @@
           <article class="feature"><span class="feature-icon" aria-hidden="true">🐈</span><h3>店貓自在生活</h3><p>空中貓走廊、磨爪立柱與安靜貓屋，讓每位夥伴依自己的步調探索或休息。</p></article>
           <article class="feature"><span class="feature-icon" aria-hidden="true">🏠</span><h3>實體愛心領養平台</h3><p>與浪浪中途之家合作，透過日常相處認識彼此，為有準備的家庭牽起緣分。</p></article>
         </div>
+        <div class="about-video">
+          <div class="video-frame"><iframe src="https://www.youtube.com/embed/videoseries?list=PL5sZngW8s_a3Gk_aSFo_UjGe0raiKHlVw" title="尋寵餐廳理念與人貓共餐介紹" width="560" height="315" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+          <div class="video-copy"><p class="eyebrow">OUR PHILOSOPHY</p><h3>安心用餐，也讓每隻貓自在做自己。</h3><p>從獨立備餐空間到貓咪專屬休息區，我們用清楚的分區與溫柔的互動守則，讓人與貓都能自在共處；也透過實體領養平台，陪伴浪浪尋找適合的家。</p></div>
+        </div>
       </div>
     </section>
     <section class="section" id="cats" aria-labelledby="catsTitle">
       <div class="container">
         <div class="section-head"><div><p class="eyebrow">MEET OUR CATS</p><h2 id="catsTitle">今天，想和誰打聲招呼？</h2></div><p class="section-intro">每隻貓都有自己的性格與節奏。來店時，讓牠們決定要不要靠近你。</p></div>
-        <div class="tabs" role="group" aria-label="篩選店貓"><button class="tab-btn active" type="button" data-filter="all" aria-pressed="true">全部貓咪夥伴</button><button class="tab-btn" type="button" data-filter="resident" aria-pressed="false">熱情常駐店貓</button><button class="tab-btn" type="button" data-filter="adoptable" aria-pressed="false">🏠 尋找永遠的家</button></div>
+        <div class="tabs" role="group" aria-label="篩選店貓"><button class="tab-btn active" type="button" data-filter="all" aria-pressed="true">全部貓咪夥伴</button><button class="tab-btn" type="button" data-filter="resident" aria-pressed="false">熱情常駐店貓</button><button class="tab-btn" type="button" data-filter="adoptable" aria-pressed="false">🏠 尋找永遠的家（支持領養）</button></div>
         <div class="cats-grid" id="catsGrid">
           <article class="cat-card" data-category="resident"><div class="cat-photo-wrap"><img class="cat-photo" src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="橘白貓阿橘" loading="lazy"><span class="cat-status">常駐店長</span></div><div class="cat-info"><div class="cat-name-row"><h3>阿橘</h3><span>♂ 3歲・橘白米克斯</span></div><p>暖男店長，主動蹭腿，是店裡最可靠的呼嚕專家。</p><div class="tags"><span>#超級親人</span><span>#摸摸專家</span><span>#暖男代表</span></div><button class="cat-action" type="button" data-greet="阿橘">跟阿橘打招呼</button></div></article>
           <article class="cat-card" data-category="adoptable"><div class="cat-photo-wrap"><img class="cat-photo" src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="待領養三花貓麻糬" loading="lazy"><span class="cat-status adopt">🏠 待領養</span></div><div class="cat-info"><div class="cat-name-row"><h3>麻糬</h3><span>♀ 10個月・三花</span></div><p>溫柔害羞，熟悉後會翻肚撒嬌，適合安靜的家庭。</p><div class="tags"><span>#親人安靜</span><span>#已結紮</span><span>#愛撒嬌</span></div><a class="cat-action" href="#booking">預約與麻糬相見</a></div></article>
@@ -289,7 +293,7 @@
           <article class="cat-card" data-category="adoptable"><div class="cat-photo-wrap"><img class="cat-photo" src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="待領養虎斑貓豆豆" loading="lazy"><span class="cat-status adopt">🏠 待領養</span></div><div class="cat-info"><div class="cat-name-row"><h3>豆豆</h3><span>♂ 6個月・虎斑米克斯</span></div><p>小小年紀超黏人，喜歡跟大貓玩，呼嚕像小引擎。</p><div class="tags"><span>#超級黏人</span><span>#已打預防針</span><span>#活潑貪玩</span></div><a class="cat-action" href="#booking">預約與豆豆相見</a></div></article>
         </div>
         <div class="adoption" id="adoption">
-          <div class="adoption-copy"><p class="eyebrow">ADOPT, DON'T SHOP</p><h3>把喜歡，慢慢走成一個家。</h3><p>店內支持領養，不收中介費，並補助新家前半年健康檢查。每個步驟都透明，也尊重你和貓咪的準備時間。</p><div class="promise"><span>✓ 不收中介費</span><span>✓ 補助前半年健檢</span><span>✓ 不接受衝動認養</span></div></div>
+          <div class="adoption-copy"><p class="eyebrow">ADOPT, DON'T SHOP</p><h3>店內支持領養・以領養代替購買</h3><p>不收中介費，並補助新家前半年健康檢查。每個步驟都透明，也尊重你和貓咪的準備時間。</p><div class="promise"><span>✓ 不收中介費</span><span>✓ 補助前半年健檢</span><span>✓ 不接受衝動認養</span></div></div>
           <div class="steps"><article class="step"><b>01</b><strong>來店互動</strong><p>預約用餐，在專屬領養區慢慢認識彼此。</p></article><article class="step"><b>02</b><strong>申請與評估</strong><p>填寫問卷，由志工了解生活環境與準備。</p></article><article class="step"><b>03</b><strong>接毛孩回家</strong><p>完成防護確認與領養約定，開啟新生活。</p></article></div>
         </div>
       </div>
@@ -309,14 +313,11 @@
         <div class="rules-grid"><article class="rule"><span aria-hidden="true">🧼</span><h3>入座前清潔雙手</h3><p>更換室內拖鞋，並使用洗手乳或酒精清潔雙手。</p></article><article class="rule"><span aria-hidden="true">🚫</span><h3>不餵食人類餐點</h3><p>人類調味可能有害，互動點心請使用店內鮮食。</p></article><article class="rule"><span aria-hidden="true">📸</span><h3>拍照請關閉閃光燈</h3><p>保護貓咪敏銳的眼睛，拍照也請保持安靜。</p></article><article class="rule"><span aria-hidden="true">💤</span><h3>讓熟睡的貓好好休息</h3><p>不強抱、不追逐，尊重每隻貓選擇互動的意願。</p></article></div>
       </div>
     </section>
-    <section class="section section-white" id="brew" aria-labelledby="brewTitle">
-      <div class="container brew-grid"><div class="video-frame"><iframe src="https://www.youtube.com/embed/hMOYa4EBntI" title="手沖咖啡沖煮示範" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><a class="video-link" href="https://www.youtube.com/watch?v=hMOYa4EBntI" target="_blank" rel="noopener noreferrer">直接在 YouTube 觀看影片 ↗</a></div><div class="brew-copy"><p class="eyebrow">A QUIET RITUAL</p><h2 id="brewTitle">把時間交給水，讓咖啡說<span>自己的話。</span></h2><p>不需要繁複儀式，只要三個安靜的步驟。每一個參數，都是為了讓你更靠近豆子原本的樣子。</p><ol class="brew-steps"><li><b>01</b><div><strong>研磨，先聞見期待</strong><p>15g 中細研磨，讓香氣從指尖開始展開。</p></div></li><li><b>02</b><div><strong>悶蒸，等待第一個呼吸</strong><p>以 92°C 熱水浸潤 30 秒，喚醒甜感與層次。</p></div></li><li><b>03</b><div><strong>注水，保持自己的節奏</strong><p>穩定畫圈，讓 240ml 的清澈在 2 分 45 秒完成。</p></div></li></ol></div></div>
-    </section>
     <section class="section section-tint" id="booking" aria-labelledby="bookingTitle">
       <div class="container"><div class="section-head"><div><p class="eyebrow">COME SAY MEOW</p><h2 id="bookingTitle">留一張位子，等一場相遇</h2></div><p class="section-intro">送出預約申請後，店員將於營業時間與你確認座位。</p></div>
         <div class="booking-grid">
           <aside class="store-info" aria-label="門市資訊"><h3>來店資訊</h3><div class="info-row"><span aria-hidden="true">📍</span><div><strong>餐廳地址</strong><p>台北市大安區忠孝東路四段 223 巷 18 號 1 樓<br>捷運忠孝敦化站 2 號出口，步行 3 分鐘</p></div></div><div class="info-row"><span aria-hidden="true">⏰</span><div><strong>營業時間</strong><p>週二至週日 11:30–21:00<br>每週一公休消毒</p></div></div><div class="info-row"><span aria-hidden="true">☎️</span><div><strong>預約專線</strong><p><a href="tel:+886227789899">(02) 2778-9899</a> · LINE @seekpet_cafe</p></div></div><div class="info-row"><span aria-hidden="true">💡</span><div><strong>用餐須知</strong><p>每人任一品項低消；平日不限時，假日用餐 120 分鐘。</p></div></div><div class="amenities"><span>免費 WiFi</span><span>充電插座</span><span>無障礙洗手間</span><span>多元支付</span></div></aside>
-          <form class="reservation" id="reservationForm"><h3>線上預約申請</h3><div class="form-grid"><div class="field"><label for="bookingName">預約大名 *</label><input id="bookingName" name="name" autocomplete="name" required></div><div class="field"><label for="bookingPhone">聯絡電話 *</label><input id="bookingPhone" name="phone" type="tel" autocomplete="tel" pattern="[0-9+()\- ]{8,}" title="請輸入有效的聯絡電話" required></div><div class="field"><label for="bookingDate">用餐日期 *</label><input id="bookingDate" name="date" type="date" required></div><div class="field"><label for="bookingTime">預約時段 *</label><select id="bookingTime" name="time" required><option value="" selected disabled>請選擇時段</option><option>11:30</option><option>13:30</option><option>15:30</option><option>17:30</option><option>19:30</option></select></div><div class="field"><label for="bookingGuests">用餐人數 *</label><select id="bookingGuests" name="guests" required><option value="" selected disabled>請選擇人數</option><option>1位</option><option>2位</option><option>3位</option><option>4位</option><option>5位以上</option></select></div><div class="field"><label for="adoptionInterest">領養意願</label><select id="adoptionInterest" name="adoption"><option>純用餐</option><option>對領養有高度意願</option><option>想先了解流程</option></select></div><div class="field full"><label for="bookingNote">特殊需求或備註</label><textarea id="bookingNote" name="note" placeholder="例如：需要兒童座椅、希望了解領養流程"></textarea></div></div><button class="button button-primary submit-button" type="submit">🐾 確認送出預約申請</button></form>
+          <form class="reservation" id="reservationForm"><h3>線上預約申請</h3><div class="form-grid"><div class="field"><label for="bookingName">預約大名 *</label><input id="bookingName" name="name" autocomplete="name" required></div><div class="field"><label for="bookingPhone">聯絡電話 *</label><input id="bookingPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required></div><div class="field"><label for="bookingDate">用餐日期 *</label><input id="bookingDate" name="date" type="date" required></div><div class="field"><label for="bookingTime">預約時段 *</label><select id="bookingTime" name="time" required><option value="" selected disabled>請選擇時段</option><option>11:30</option><option>13:30</option><option>15:30</option><option>17:30</option><option>19:30</option></select></div><div class="field"><label for="bookingGuests">用餐人數 *</label><select id="bookingGuests" name="guests" required><option value="" selected disabled>請選擇人數</option><option>1位</option><option>2位</option><option>3位</option><option>4位</option><option>5位以上</option></select></div><div class="field"><label for="adoptionInterest">領養意願</label><select id="adoptionInterest" name="adoption"><option>純用餐</option><option>對領養有高度意願</option><option>想先了解流程</option></select></div><div class="field full"><label for="bookingNote">特殊需求或備註</label><textarea id="bookingNote" name="note" placeholder="例如：需要兒童座椅、希望了解領養流程"></textarea></div></div><button class="button button-primary submit-button" type="submit">🐾 確認送出預約申請</button></form>
         </div>
       </div>
     </section>
