@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 640" role="img" aria-labelledby="title desc">
+  <title id="title">自在的咖啡角落</title>
+  <desc id="desc">暖色系室內插畫：窗邊有木桌、椅子、咖啡杯與綠色盆栽。</desc>
+  <rect width="760" height="640" fill="#e9e4d8"/>
+  <rect x="73" y="58" width="360" height="312" rx="3" fill="#f8f5ec"/>
+  <rect x="92" y="77" width="322" height="273" fill="#d8e0d1"/>
+  <path d="M92 264c71-54 127-40 174 5 49-58 94-59 148-9v90H92z" fill="#b5c3a9"/>
+  <circle cx="339" cy="125" r="35" fill="#e3c991"/>
+  <path d="M252 78v272M92 214h322" fill="none" stroke="#bcae97" stroke-width="10"/>
+  <rect x="0" y="443" width="760" height="197" fill="#d7cbb8"/>
+  <path d="M183 380h321l-21 26H198z" fill="#76563f"/>
+  <path d="M207 406h274l-29 22H221z" fill="#9a7656"/>
+  <path d="M241 428h18l-12 151h-19zM425 428h18l17 151h-19z" fill="#684b38"/>
+  <path d="M487 465h111v15H487zM502 478l11 91h16l-7-91M575 478l-8 91h16l11-91" fill="#725541"/>
+  <path d="M516 454h44v8h-44z" fill="#4a6047"/>
+  <path d="M516 450c-25-24-21-50-3-69 15 22 15 45 3 69zM542 450c-11-34 1-57 30-70 3 27-7 50-30 70zM534 449c-1-45 16-70 52-75 0 35-18 60-52 75z" fill="#637652"/>
+  <path d="M512 458h56l-7 26h-42z" fill="#b77e56"/>
+  <ellipse cx="353" cy="403" rx="29" ry="7" fill="#f7f2e7"/>
+  <path d="M328 397h49l-5 27c-2 12-9 18-20 18h-1c-11 0-18-6-20-18z" fill="#f8f5ec"/>
+  <path d="M375 401h9c10 0 14 6 12 14-2 7-7 11-15 11h-8l2-8h6c4 0 6-2 7-5s-1-4-5-4h-9z" fill="#f8f5ec"/>
+  <path d="M339 401h29" stroke="#76563f" stroke-linecap="round" stroke-width="4"/>
+  <path d="M0 588h760" stroke="#b6a38c" stroke-width="3"/>
+  <path d="M115 442c-35-32-37-64-8-95 28 30 31 62 8 95zM117 451c11-41 37-60 78-55-13 34-39 53-78 55z" fill="#607250"/>
+  <path d="M116 453v-70" stroke="#4f6245" stroke-width="4"/>
+  <path d="M86 454h65l-8 35H94z" fill="#b77e56"/>
+  <path d="M148 482h38M154 491h28" stroke="#ad9377" stroke-width="3"/>
+</svg>

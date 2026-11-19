@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 650" role="img" aria-labelledby="title desc">
+  <title id="title">一杯現煮咖啡</title>
+  <desc id="desc">暖色系插畫：米白咖啡杯、咖啡豆與枝葉。</desc>
+  <rect width="760" height="650" fill="#e9e3d6"/>
+  <circle cx="580" cy="142" r="115" fill="#d9dfcf"/>
+  <path d="M0 495c140-45 232-24 353 3s258 22 407-19v171H0z" fill="#d6cbb9"/>
+  <ellipse cx="382" cy="500" rx="209" ry="37" fill="#b9a994" opacity=".48"/>
+  <path d="M241 250h288l-28 190c-5 37-34 64-71 64h-91c-37 0-66-27-71-64z" fill="#fffdf7"/>
+  <path d="M527 286h33c47 0 70 29 62 68-7 32-35 52-74 52h-27l7-37h25c18 0 29-8 32-22 3-13-5-21-22-21h-31z" fill="#f3eee4"/>
+  <path d="M266 285h237l-7 51H258z" fill="#694b39"/>
+  <ellipse cx="385" cy="284" rx="119" ry="20" fill="#8a6549"/>
+  <path d="M347 277c9-16 20-19 31-4 9 13 16 15 26 2 11-14 22-12 30 3" fill="none" stroke="#d7bb91" stroke-linecap="round" stroke-width="8"/>
+  <path d="M325 476h122c-14 29-34 43-62 43s-47-14-60-43z" fill="#eee7da"/>
+  <g fill="#687456">
+    <path d="M117 407c-55-41-71-90-46-143 41 36 59 83 46 143z"/>
+    <path d="M121 373c-8-72 18-118 76-138 5 54-22 103-76 138z"/>
+    <path d="M109 458c-65 4-110-21-130-76 58-4 103 21 130 76z"/>
+    <path d="M650 393c10-66 44-104 101-114-5 55-38 93-101 114z"/>
+    <path d="M647 432c39-53 86-69 141-49-33 45-80 62-141 49z"/>
+  </g>
+  <g fill="none" stroke="#536047" stroke-linecap="round" stroke-width="5">
+    <path d="M97 480c1-69 12-126 39-179"/>
+    <path d="M646 450c12-61 34-109 67-148"/>
+  </g>
+  <g fill="#866247">
+    <ellipse cx="190" cy="492" rx="14" ry="23" transform="rotate(-35 190 492)"/>
+    <ellipse cx="227" cy="516" rx="13" ry="21" transform="rotate(22 227 516)"/>
+    <ellipse cx="563" cy="495" rx="14" ry="22" transform="rotate(38 563 495)"/>
+  </g>
+  <g fill="none" stroke="#f0ddc4" stroke-linecap="round" stroke-width="3">
+    <path d="M183 478l14 28M222 497l9 36M554 480l18 30"/>
+  </g>
+</svg>
